@@ -13,6 +13,7 @@ const reset = document.getElementById('reset-button');
 const section = document.getElementById('section');
 const wins = document.getElementById('times-won');
 const loses = document.getElementById('times-lost');
+const playAgainButton = document.getElementById('play-again-button');
 
 let correctNumber = Math.ceil(Math.random() * 20);
 let score = 0;
@@ -91,7 +92,7 @@ button.addEventListener('click', () => {
         //generate a new number
         correctNumber = Math.ceil(Math.random() * 20);
         //turn off button
-        button.disable = true;
+        button.disabled = true;
     }
     
     //how many times player wins tracking
@@ -111,6 +112,20 @@ reset.addEventListener('click', () => {
     //reset times lost
     timesLost = 0;
     loses.textContent = timesLost;
+    //generate a new number
+    correctNumber = Math.ceil(Math.random() * 20);
+    //hide displays again
+    section.style.display = 'none';
+    console.log(correctNumber);
+    //button works again
+    button.disabled = false;
+});
+
+//play again button
+
+playAgainButton.addEventListener('click', () => {
+    //reset score to zero
+    score = 0;
     //generate a new number
     correctNumber = Math.ceil(Math.random() * 20);
     //hide displays again
