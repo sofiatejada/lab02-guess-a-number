@@ -19,6 +19,8 @@ let score = 0;
 button.addEventListener('click', () => {
     //track the user inputs
     score = score + 1;
+    result.style.display = 'none';
+    wrongDisplay.style.display = 'none';
 
     
     //get the user input and store it in a variable
@@ -62,5 +64,5 @@ button.addEventListener('click', () => {
 reset.addEventListener('click', () => {
     score = 0;
     correctNumber = Math.ceil(Math.random() * 20);
-    
+
 });
