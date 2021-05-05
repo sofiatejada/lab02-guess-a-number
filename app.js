@@ -17,7 +17,7 @@ const correctNumber = Math.ceil(Math.random() * 20);
 
 button.addEventListener('click', () => {
     //track the user inputs
-    let score = 3;
+    let score = 0;
 
     
     //get the user input and store it in a variable
@@ -35,11 +35,13 @@ button.addEventListener('click', () => {
     if (compareNumbers(input, correctNumber) === 0) {
         wrongDisplay.textContent = 'Well done! You\'re right!';
     } else if (compareNumbers(input, correctNumber) === 1) {
+        score = score + 1;
         wrongDisplay.textContent = 'Too high! Try again.';
     } else if (compareNumbers(input, correctNumber) === -1) {
+        
         wrongDisplay.textContent = 'Too low! Try again.';
     }
-    score = score - 1;
+
     console.log(score);
     
 
