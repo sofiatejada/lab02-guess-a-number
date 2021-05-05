@@ -10,7 +10,7 @@ const button = document.getElementById('button');
 const wrongDisplay = document.getElementById('tries-remaining');
 const result = document.getElementById('result');
 
-const correctNumber = Math.ceil(Math.random() * 20);
+let correctNumber = Math.ceil(Math.random() * 20);
 let score = 0;
 
 //set up an event listener
@@ -42,7 +42,11 @@ button.addEventListener('click', () => {
         wrongDisplay.textContent = `Too low! Try again. You have clicked ${score} times`;
     }
 
-    
+    if (score === 5) {
+        alert('You lose! Try again');
+        score = 0;
+        correctNumber = Math.ceil(Math.random() * 20);
+    }
     
 
     
