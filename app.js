@@ -64,5 +64,6 @@ button.addEventListener('click', () => {
 reset.addEventListener('click', () => {
     score = 0;
     correctNumber = Math.ceil(Math.random() * 20);
-
+    result.style.display = 'none';
+    wrongDisplay.style.display = 'none';
 });
