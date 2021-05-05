@@ -12,9 +12,9 @@ test('time to test a function', (expect) => {
     
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = compareNumbers(1);
-    const high = compareNumbers(2);
-    const low = compareNumbers(0);
+    const actual = compareNumbers(1, 1);
+    const high = compareNumbers(2, 1);
+    const low = compareNumbers(0, 1);
 
 
     //Expect

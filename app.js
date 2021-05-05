@@ -10,7 +10,7 @@ const button = document.getElementById('button');
 const wrongDisplay = document.getElementById('tries-remaining');
 const result = document.getElementById('result');
 
-
+let correctNumber = Math.ceil(Math.random() * 20);
 
 //set up an event listener
 
@@ -25,11 +25,11 @@ button.addEventListener('click', () => {
 
     //check the input against the random number
 
-    if (compareNumbers(input) === 0) {
+    if (compareNumbers(input, correctNumber) === 0) {
         result.textContent = 'Well done! You\'re right!';
-    } else if (compareNumbers(input) === 1) {
+    } else if (compareNumbers(input, correctNumber) === 1) {
         wrongDisplay.textContent = 'Too high! Try again.';
-    } else if (compareNumbers(input) === -1) {
+    } else if (compareNumbers(input, correctNumber) === -1) {
         wrongDisplay.textContent = 'Too low! Try again.';
     }
 
