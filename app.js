@@ -36,15 +36,15 @@ button.addEventListener('click', () => {
     //check the input against the random number
 
     if (compareNumbers(input, correctNumber) === 0) {
-        result.textContent = `Well done! You're right! You have clicked ${score} times`;
+        result.textContent = `Well done! You're right! You have ${5 - score} tries remaining`;
         result.style.display = 'block';
         score = 0;
         correctNumber = Math.ceil(Math.random() * 20);
     } else if (compareNumbers(input, correctNumber) === 1) {
-        wrongDisplay.textContent = `Too high! Try again. You have clicked ${score} times`;
+        wrongDisplay.textContent = `Too high! Try again. You have ${5 - score} tries remaining`;
         wrongDisplay.style.display = 'block';
     } else if (compareNumbers(input, correctNumber) === -1) {     
-        wrongDisplay.textContent = `Too low! Try again. You have clicked ${score} times`;
+        wrongDisplay.textContent = `Too low! Try again. You have ${5 - score} tries remaining`;
         wrongDisplay.style.display = 'block';
     }
 
