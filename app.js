@@ -12,26 +12,36 @@ const result = document.getElementById('result');
 
 const correctNumber = Math.ceil(Math.random() * 20);
 
+
 //set up an event listener
 
 button.addEventListener('click', () => {
+    //track the user inputs
+    let score = 3;
 
+    
     //get the user input and store it in a variable
-    const input = userInput.value;
+    const input = Number(userInput.value);
     console.log(userInput.value);
 
     console.log(compareNumbers);
     console.log(correctNumber);
 
 
+
+
     //check the input against the random number
 
     if (compareNumbers(input, correctNumber) === 0) {
-        result.textContent = 'Well done! You\'re right!';
+        wrongDisplay.textContent = 'Well done! You\'re right!';
     } else if (compareNumbers(input, correctNumber) === 1) {
         wrongDisplay.textContent = 'Too high! Try again.';
     } else if (compareNumbers(input, correctNumber) === -1) {
         wrongDisplay.textContent = 'Too low! Try again.';
     }
+    score = score - 1;
+    console.log(score);
+    
 
+    
 });
