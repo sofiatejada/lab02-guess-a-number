@@ -11,9 +11,11 @@ const wrongDisplay = document.getElementById('tries-remaining');
 const result = document.getElementById('result');
 const reset = document.getElementById('reset-button');
 const section = document.getElementById('section');
+const wins = document.getElementById('times-won');
 
 let correctNumber = Math.ceil(Math.random() * 20);
 let score = 0;
+let timesWon = 0;
 
 //set up an event listener
 
@@ -42,12 +44,20 @@ button.addEventListener('click', () => {
         score = 0;
         //generate a new number
         correctNumber = Math.ceil(Math.random() * 20);
+        //tracking wins
+        timesWon = timesWon + 1;
+        //display times won
+        wins.textContent = timesWon;
     } else if (compareNumbers(input, correctNumber) === 1) {
         wrongDisplay.textContent = `Too high! Try again. You have ${5 - score} tries remaining`;
         //unhide it
         section.style.display = 'block';
+        //display times won
+        wins.textContent = timesWon;
     } else if (compareNumbers(input, correctNumber) === -1) {     
         wrongDisplay.textContent = `Too low! Try again. You have ${5 - score} tries remaining`;
+        //display times won
+        wins.textContent = timesWon;
         //unhide it
         section.style.display = 'block';
     }
@@ -62,6 +72,8 @@ button.addEventListener('click', () => {
         correctNumber = Math.ceil(Math.random() * 20);
     }
     
+    //how many times player wins tracking
+
 
     
 });
@@ -71,6 +83,8 @@ button.addEventListener('click', () => {
 reset.addEventListener('click', () => {
     //reset score to zero
     score = 0;
+    //reset times won
+    timesWon = 0;
     //generate a new number
     correctNumber = Math.ceil(Math.random() * 20);
     //hide displays again
