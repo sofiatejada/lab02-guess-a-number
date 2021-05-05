@@ -12,7 +12,7 @@ const result = document.getElementById('result');
 const reset = document.getElementById('reset-button');
 const section = document.getElementById('section');
 const wins = document.getElementById('times-won');
-const loses= document.getElementById('times-lost');
+const loses = document.getElementById('times-lost');
 
 let correctNumber = Math.ceil(Math.random() * 20);
 let score = 0;
@@ -28,10 +28,10 @@ button.addEventListener('click', () => {
     
     //get the user input and store it in a variable
     const input = Number(userInput.value);
-    console.log(userInput.value);
+    // console.log(userInput.value);
 
-    console.log(compareNumbers);
-    console.log(correctNumber);
+    // console.log(compareNumbers);
+    // console.log(correctNumber);
 
 
 
@@ -115,7 +115,7 @@ reset.addEventListener('click', () => {
     correctNumber = Math.ceil(Math.random() * 20);
     //hide displays again
     section.style.display = 'none';
-    console.log(correctNumber);
+    // console.log(correctNumber);
     //button works again
     button.disable = false;
 });
