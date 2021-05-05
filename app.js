@@ -34,20 +34,27 @@ button.addEventListener('click', () => {
 
     if (compareNumbers(input, correctNumber) === 0) {
         result.textContent = `Well done! You're right! You have clicked ${score} times`;
+        result.style.display = 'block';
+        score = 0;
+        correctNumber = Math.ceil(Math.random() * 20);
     } else if (compareNumbers(input, correctNumber) === 1) {
-        
         wrongDisplay.textContent = `Too high! Try again. You have clicked ${score} times`;
-    } else if (compareNumbers(input, correctNumber) === -1) {
-        
+        wrongDisplay.style.display = 'block';
+    } else if (compareNumbers(input, correctNumber) === -1) {     
         wrongDisplay.textContent = `Too low! Try again. You have clicked ${score} times`;
+        wrongDisplay.style.display = 'block';
     }
 
     if (score === 5) {
         alert('You lose! Try again');
         score = 0;
         correctNumber = Math.ceil(Math.random() * 20);
+        result.style.display = 'none';
+        wrongDisplay.style.display = 'none';
     }
     
 
     
 });
+
+
