@@ -10,7 +10,7 @@ const button = document.getElementById('button');
 const wrongDisplay = document.getElementById('tries-remaining');
 const result = document.getElementById('result');
 
-let correctNumber = Math.ceil(Math.random() * 20);
+const correctNumber = Math.ceil(Math.random() * 20);
 
 //set up an event listener
 
@@ -21,6 +21,7 @@ button.addEventListener('click', () => {
     console.log(userInput.value);
 
     console.log(compareNumbers);
+    console.log(correctNumber);
 
 
     //check the input against the random number
