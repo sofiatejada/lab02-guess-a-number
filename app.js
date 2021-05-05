@@ -37,9 +37,13 @@ button.addEventListener('click', () => {
     //check the input against the random number
 
     if (compareNumbers(input, correctNumber) === 0) {
-        result.textContent = `Well done! You're right! You have ${5 - score} tries remaining`;
+        result.textContent = `Well done! You won in ${score} tries!`;
+        if (score === 1) {
+            result.textContent = `Well done! You won in ${score} try!`;
+        }
         //unhide it
         section.style.display = 'block';
+        result.style.display = 'block';
         //set result back to zero
         score = 0;
         //generate a new number
@@ -48,18 +52,26 @@ button.addEventListener('click', () => {
         timesWon = timesWon + 1;
         //display times won
         wins.textContent = timesWon;
+        //hide wrong display
+        wrongDisplay.style.display = 'none';
     } else if (compareNumbers(input, correctNumber) === 1) {
         wrongDisplay.textContent = `Too high! Try again. You have ${5 - score} tries remaining`;
         //unhide it
         section.style.display = 'block';
+        wrongDisplay.style.display = 'block';
         //display times won
         wins.textContent = timesWon;
+        //hide winning message
+        result.style.display = 'none';
     } else if (compareNumbers(input, correctNumber) === -1) {     
         wrongDisplay.textContent = `Too low! Try again. You have ${5 - score} tries remaining`;
         //display times won
         wins.textContent = timesWon;
         //unhide it
         section.style.display = 'block';
+        wrongDisplay.style.display = 'block';
+        //hide winning message
+        result.style.display = 'none';
     }
 
     //lost the game reset
@@ -85,8 +97,10 @@ reset.addEventListener('click', () => {
     score = 0;
     //reset times won
     timesWon = 0;
+    wins.textContent = timesWon;
     //generate a new number
     correctNumber = Math.ceil(Math.random() * 20);
     //hide displays again
     section.style.display = 'none';
+    console.log(correctNumber);
 });
