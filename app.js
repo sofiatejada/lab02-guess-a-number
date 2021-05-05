@@ -12,10 +12,12 @@ const result = document.getElementById('result');
 const reset = document.getElementById('reset-button');
 const section = document.getElementById('section');
 const wins = document.getElementById('times-won');
+const loses= document.getElementById('times-lost');
 
 let correctNumber = Math.ceil(Math.random() * 20);
 let score = 0;
 let timesWon = 0;
+let timesLost = 0;
 
 //set up an event listener
 
@@ -38,8 +40,10 @@ button.addEventListener('click', () => {
 
     if (compareNumbers(input, correctNumber) === 0) {
         result.textContent = `Well done! You won in ${score} tries!`;
+        button.disable = true;
         if (score === 1) {
             result.textContent = `Well done! You won in ${score} try!`;
+            button.disable = true;
         }
         //unhide it
         section.style.display = 'block';
@@ -77,11 +81,17 @@ button.addEventListener('click', () => {
     //lost the game reset
 
     if (score === 5) {
+        //tracking loses
+        timesLost = timesLost + 1;
+        //display times lost
+        loses.textContent = timesLost;
         wrongDisplay.textContent = 'You lose! Try again.';
         //reset score to zero
         score = 0;
         //generate a new number
         correctNumber = Math.ceil(Math.random() * 20);
+        //turn off button
+        button.disable = true;
     }
     
     //how many times player wins tracking
@@ -98,9 +108,14 @@ reset.addEventListener('click', () => {
     //reset times won
     timesWon = 0;
     wins.textContent = timesWon;
+    //reset times lost
+    timesLost = 0;
+    loses.textContent = timesLost;
     //generate a new number
     correctNumber = Math.ceil(Math.random() * 20);
     //hide displays again
     section.style.display = 'none';
     console.log(correctNumber);
+    //button works again
+    button.disable = false;
 });
