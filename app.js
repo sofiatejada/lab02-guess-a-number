@@ -116,7 +116,7 @@ reset.addEventListener('click', () => {
     correctNumber = Math.ceil(Math.random() * 20);
     //hide displays again
     section.style.display = 'none';
-    console.log(correctNumber);
+    //console.log(correctNumber);
     //button works again
     button.disabled = false;
 });
