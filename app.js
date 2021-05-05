@@ -9,6 +9,7 @@ const userInput = document.getElementById('userInput');
 const button = document.getElementById('button');
 const wrongDisplay = document.getElementById('tries-remaining');
 const result = document.getElementById('result');
+const reset = document.getElementById('reset-button');
 
 let correctNumber = Math.ceil(Math.random() * 20);
 let score = 0;
@@ -58,3 +59,8 @@ button.addEventListener('click', () => {
 });
 
 
+reset.addEventListener('click', () => {
+    score = 0;
+    correctNumber = Math.ceil(Math.random() * 20);
+    
+});
