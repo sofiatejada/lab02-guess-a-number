@@ -28,10 +28,10 @@ button.addEventListener('click', () => {
     
     //get the user input and store it in a variable
     const input = Number(userInput.value);
-    // console.log(userInput.value);
+    //console.log(userInput.value);
 
-    // console.log(compareNumbers);
-    // console.log(correctNumber);
+    //console.log(compareNumbers);
+    //console.log(correctNumber);
 
 
 
@@ -40,10 +40,10 @@ button.addEventListener('click', () => {
 
     if (compareNumbers(input, correctNumber) === 0) {
         result.textContent = `Well done! You won in ${score} tries!`;
-        button.disable = true;
+        button.disabled = true;
         if (score === 1) {
             result.textContent = `Well done! You won in ${score} try!`;
-            button.disable = true;
+            button.disabled = true;
         }
         //unhide it
         section.style.display = 'block';
@@ -115,7 +115,7 @@ reset.addEventListener('click', () => {
     correctNumber = Math.ceil(Math.random() * 20);
     //hide displays again
     section.style.display = 'none';
-    // console.log(correctNumber);
+    //console.log(correctNumber);
     //button works again
-    button.disable = false;
+    button.disabled = false;
 });
